@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Carte interactive des lieux de diffusion de la Coupe du monde 2026 dans le Rhône" />
+  <title>WC26 : où voir les matchs ?</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =============================================
+       PROPRIÉTÉS VISUELLES
+       ============================================= */
+    :root {
+      /* Palette existante et nouvelle palette étendue (sans doublons) */
+      --blue:            #375AFE;
+      --blue-dark:       #1B2789;
+      --blue-light:      #8DBAFE;
+      --blue-electric:   #3659FF;
+      --red-dark:        #801211;
+      --red:             #DC0203;
+      --orange:          #FE4502;
+      --green-dark:      #025649;
+      --green:           #04CF5C;
+      --accent:          #BAEE06;
+      
+      --white:           #FFFFFF;
+      --dark:            #0D0D0D;
+      --surface:         #F4F4F4;
+      --surface-low:     #E8E8E8;
+      --outline:         #7A7A8A;
+
+      --font-display: 'Climate Crisis', cursive;
+      --font-body:    'Hanken Grotesk', sans-serif;
+      --font-mono:    'JetBrains Mono', monospace;
+
+      --sidebar-w:    360px;
+      --header-h:     68px;
+      --r:            999px; /* pill radius */
+      --ease:         200ms ease-out;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      font-family: var(--font-body);
+      background: var(--dark);
+      color: var(--dark);
+      -webkit-font-smoothing: antialiased;
+      overscroll-behavior: none;
+    }
+
+    ::-webkit-scrollbar { width: 4px; height: 4px;}
+    ::-webkit-scrollbar-track { background: var(--surface-low); }
+    ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 2px; }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap;
+    }
+
+    /* =============================================
+       APP SHELL
+       ============================================= */
+    #app {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
+    }
+
+    /* =============================================
+       HEADER
+       ============================================= */
+    #header {
+      flex-shrink: 0;
+      height: var(--header-h);
+      background: var(--dark);
+      display: flex;
+      align-items: center;
+      padding: 10px 16px 10px 12px;
+      gap: 16px;
+      position: relative;
+      z-index: 1000;
+      border-bottom: 4px solid transparent;
+      background-clip: padding-box;
+    }
+
+    #header::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg,
+        var(--red)   0%   33%,
+        var(--blue)  33% 66%,
+        var(--green) 66%  100%
+      );
+      pointer-events: none;
+    }
+
+    .logo-pill {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      height: 48px;
+      background: var(--blue);
+      border-radius: var(--r);
+      padding: 0 18px 0 16px;
+      position: relative;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      margin-right: 14px;
+    }
+
+    .logo-source {
+      font-family: var(--font-mono);
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+
+    .logo-name {
+      font-family: var(--font-display);
+      font-size: 18px;
+      color: var(--white);
+      line-height: 1;
+      letter-spacing: -0.01em;
+    }
+
+    .logo-digits {
+      display: flex;
+      align-items: center;
+      margin-left: -2px;
+    }
+
+    .digit-bubble {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1;
+      margin-left: -6px;
+      border: 2px solid var(--blue);
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .digit-bubble:first-child { margin-left: 0; }
+
+    .d-blue  { background: var(--blue-dark); color: var(--white); }
+    .d-lime  { background: var(--accent);  color: var(--dark); border-color: var(--accent); } 
+    .d-green { background: var(--green); color: var(--white); border-color: var(--green); }
+    .d-red   { background: var(--red);   color: var(--white); border-color: var(--red);  }
+    .d-white { background: var(--dark);   color: var(--white); border-color: var(--blue);  }
+
+    #toggle-list-btn {
+      display: none;
+      flex-shrink: 0;
+      align-items: center;
+      gap: 6px;
+      background: none !important;
+      border: none !important;
+      color: var(--white);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 7px 18px;
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
+      white-space: nowrap;
+    }
+
+    #toggle-list-btn::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--blue-dark);
+      border: 2px solid var(--blue);
+      border-radius: 4px;
+      transform: skewX(-15deg);
+      z-index: -1;
+      transition: background var(--ease), border-color var(--ease);
+    }
+
+    #toggle-list-btn:hover::before {
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    /* =============================================
+       CONTENU
+       ============================================= */
+    #content {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+    }
+
+    /* =============================================
+       CARTE
+       ============================================= */
+    #map {
+      flex: 1;
+      min-width: 0;
+      z-index: 1;
+    }
+
+    .leaflet-control-attribution {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      background: rgba(255,255,255,0.9) !important;
+    }
+
+    @media (max-width: 768px) {
+      .leaflet-control-attribution {
+        display: none !important;
+      }
+    }
+
+    .leaflet-control-zoom a {
+      font-family: var(--font-mono) !important;
+      font-weight: 700 !important;
+      color: var(--blue) !important;
+      border-radius: 0 !important;
+    }
+
+    .leaflet-control-zoom a:hover {
+      background: var(--blue) !important;
+      color: var(--white) !important;
+    }
+
+    .leaflet-bar {
+      border: 2px solid var(--blue) !important;
+      box-shadow: 3px 3px 0 var(--blue-dark) !important;
+      border-radius: 0 !important;
+    }
+
+    .leaflet-bar a:first-child,
+    .leaflet-bar a:last-child { border-radius: 0 !important; }
+
+    /* =============================================
+       MARQUEURS
+       ============================================= */
+    .marker-wrap {
+      cursor: pointer;
+      transition: transform var(--ease);
+      will-change: transform;
+    }
+
+    .marker-wrap:hover { transform: scale(1.18); }
+    .marker-wrap.active { transform: scale(1.25); }
+
+    @keyframes markerPop {
+      0%   { opacity: 0; transform: scale(0) translateY(8px); }
+      65%  { transform: scale(1.12) translateY(-2px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .marker-anim {
+      animation: markerPop 380ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+
+    /* =============================================
+       POPUP
+       ============================================= */
+    .leaflet-popup-content-wrapper {
+      border-radius: 20px !important;
+      border: 2.5px solid var(--blue) !important;
+      box-shadow: 4px 4px 0 var(--blue-dark) !important;
+      padding: 0 !important;
+      overflow: hidden;
+    }
+
+    .leaflet-popup-content { margin: 0 !important; width: 285px !important; }
+    .leaflet-popup-tip-container { display: none; }
+
+    .leaflet-popup-close-button {
+      font-family: var(--font-mono) !important;
+      font-size: 15px !important;
+      font-weight: 700 !important;
+      color: var(--white) !important;
+      top: 10px !important;
+      right: 14px !important;
+      z-index: 10;
+    }
+
+    .popup-header {
+      padding: 14px 38px 14px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .popup-header::after {
+      content: '';
+      position: absolute;
+      right: -18px; top: -18px;
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      pointer-events: none;
+    }
+
+    .popup-type-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255,255,255,0.2);
+      color: var(--white);
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: var(--r);
+      margin-bottom: 7px;
+    }
+
+    .popup-nom {
+      font-family: var(--font-display);
+      font-size: 16px;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .popup-ribbon {
+      height: 4px;
+      background: linear-gradient(90deg,
+        var(--red)   0%   33%,
+        var(--blue)  33% 66%,
+        var(--green) 66%  100%
+      );
+    }
+
+    .popup-body { padding: 14px 16px 10px; background: var(--white); }
+
+    .popup-row {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 10px;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .popup-row:last-of-type { margin-bottom: 0; }
+
+    .popup-icon {
+      flex-shrink: 0;
+      width: 16px; height: 16px;
+      margin-top: 2px;
+    }
+
+    .popup-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--outline);
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      display: block;
+      margin-bottom: 1px;
+    }
+
+    .popup-value { color: var(--dark); }
+
+    a.popup-tel {
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a.popup-tel:hover { text-decoration: underline; }
+
+    .popup-footer {
+      padding: 8px 16px 14px;
+      background: var(--white);
+    }
+
+    .leaflet-popup-content a.btn-itineraire,
+    .btn-itineraire {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 10px 16px;
+      background: var(--blue) !important;
+      color: var(--white) !important;
+      border: 2px solid var(--blue);
+      border-radius: var(--r);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none !important;
+      cursor: pointer;
+      transition: background var(--ease), border-color var(--ease), transform var(--ease);
+    }
+
+    .leaflet-popup-content a.btn-itineraire:hover,
+    .btn-itineraire:hover,
+    .btn-itineraire:focus-visible {
+      background: var(--blue-dark) !important;
+      border-color: var(--blue-dark);
+      color: var(--white) !important;
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .popup-horaires-toggle {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--blue);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: underline;
+    }
+
+    .popup-horaires-list { margin-top: 6px; display: none; }
+    .popup-horaires-list.open { display: block; }
+
+    .popup-horaires {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .horaire-row { display: flex; justify-content: space-between; gap: 10px; }
+    .horaire-day { color: var(--outline); }
+    .horaire-time { color: var(--blue); font-weight: 700; }
+
+    /* =============================================
+       SIDEBAR / DRAWER
+       ============================================= */
+    #sidebar {
+      width: var(--sidebar-w);
+      flex-shrink: 0;
+      background: var(--white);
+      border-left: 2.5px solid var(--blue);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 100;
+    }
+
+    .sidebar-header {
+      flex-shrink: 0;
+      padding: 16px 18px 12px;
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sidebar-header::before {
+      content: '';
+      position: absolute;
+      right: -20px; top: -20px;
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: var(--blue);
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    .sidebar-header::after {
+      content: '';
+      position: absolute;
+      right: 16px; bottom: -22px;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--green);
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .sidebar-title {
+      font-family: var(--font-display);
+      font-size: 12px;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,1);
+    }
+
+    .legend-dot {
+      width: 16px;
+      height: 10px;
+      border-radius: 3px;
+      flex-shrink: 0;
+      transform: skewX(-15deg);
+      display: inline-block;
+      box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    .search-wrap { position: relative; z-index: 1; }
+
+    #search-input {
+      width: 100%;
+      padding: 9px 36px 9px 14px;
+      border: 2px solid rgba(255,255,255,0.15);
+      border-radius: var(--r);
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--dark);
+      background: var(--white);
+      outline: none;
+      transition: border-color var(--ease), box-shadow var(--ease);
+    }
+
+    #search-input:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(55,90,254,0.25);
+    }
+
+    #search-input::placeholder { color: var(--outline); font-size: 13px; }
+
+    .search-icon {
+      position: absolute;
+      right: 12px; top: 50%;
+      transform: translateY(-50%);
+      color: var(--outline);
+      font-size: 15px;
+      pointer-events: none;
+    }
+
+    #lieu-list {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 4px 0;
+      background: var(--white);
+    }
+
+    .lieu-item {
+      display: flex;
+      align-items: stretch;
+      border-bottom: 1px solid var(--surface-low);
+      cursor: pointer;
+      transition: background var(--ease);
+    }
+
+    .lieu-item:last-child { border-bottom: none; }
+
+    .lieu-item:hover,
+    .lieu-item:focus-within { background: var(--surface); }
+
+    .lieu-item.active { background: var(--blue); }
+
+    .lieu-item.active .lieu-nom,
+    .lieu-item.active .lieu-type-label,
+    .lieu-item.active .lieu-adresse { color: var(--white); }
+    .lieu-item.active .lieu-adresse { color: rgba(255,255,255,0.7); }
+
+    .lieu-body {
+      flex: 1;
+      padding: 11px 12px;
+      min-width: 0;
+    }
+
+    .lieu-type-label {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+      padding: 2px 8px 2px 6px;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .lieu-type-label::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--type-color, var(--surface-low));
+      transform: skewX(-15deg);
+      border-radius: 2px;
+      z-index: -1;
+    }
+
+    .lieu-item.active .lieu-type-label {
+      color: var(--dark);
+    }
+
+    .lieu-item.active .lieu-type-label::before {
+      background: rgba(255,255,255,0.85);
+    }
+
+    .lieu-nom {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--dark);
+      line-height: 1.3;
+      margin-bottom: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .lieu-adresse {
+      font-size: 12px;
+      color: var(--outline);
+      line-height: 1.4;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .lieu-arrow {
+      flex-shrink: 0;
+      align-self: center;
+      padding-right: 14px;
+      display: flex;
+      align-items: center;
+      color: var(--surface-low);
+      transition: color var(--ease), transform var(--ease);
+    }
+
+    .lieu-arrow svg {
+      display: block;
+      transform: skewX(-8deg);
+      transition: transform var(--ease);
+    }
+
+    .lieu-item:hover:not(.active) .lieu-arrow {
+      color: var(--blue);
+      transform: translateX(2px);
+    }
+
+    .lieu-item.active .lieu-arrow { color: rgba(255,255,255,0.5); }
+
+    .empty-msg {
+      text-align: center;
+      padding: 40px 20px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--outline);
+    }
+
+    /* =============================================
+       DRAWER (MOBILE)
+       ============================================= */
+    @media (max-width: 768px) {
+      :root {
+        --header-h: 58px;
+      }
+
+      #toggle-list-btn { display: flex; }
+
+      .logo-pill {
+        height: 42px;
+        padding: 0 14px 0 12px;
+      }
+
+      .logo-source { font-size: 7px; }
+      .logo-name   { font-size: 16px; }
+
+      .digit-bubble { width: 26px; height: 26px; font-size: 11px; margin-left: -5px; }
+
+      #sidebar {
+        position: fixed;
+        bottom: 0; left: 0; right: 0;
+        width: 100%;
+        height: 55vh;
+        border-left: none;
+        border-top: 4px solid var(--blue);
+        border-radius: 24px 24px 0 0;
+        transform: translateY(100%);
+        transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 500;
+      }
+
+      #sidebar.drawer-open { transform: translateY(0); }
+
+      .sidebar-header {
+        border-radius: 24px 24px 0 0;
+      }
+
+      .sidebar-handle {
+        display: block;
+        width: 32px;
+        height: 3px;
+        background: rgba(255,255,255,0.3);
+        border-radius: 2px;
+        margin: 0 auto 12px;
+      }
+
+      .leaflet-popup-content { width: 260px !important; }
+    }
+
+    @media (min-width: 769px) {
+      .sidebar-handle { display: none; }
+    }
+
+    /* =============================================
+       ACCESSIBILITÉ
+       ============================================= */
+    :focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 2px;
+    }
+
+    .lieu-item:focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: -2px;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+<div id="app">
+  <header id="header" role="banner">
+    <div class="logo-pill">
+      <div class="logo-text">
+        <span class="logo-name">MONDIAL</span>
+      </div>
+      <div class="logo-digits" aria-hidden="true">
+        <div class="digit-bubble d-white">2</div>
+        <div class="digit-bubble d-red">0</div>
+        <div class="digit-bubble d-blue">2</div>
+        <div class="digit-bubble d-green">6</div>
+      </div>
+    </div>
+
+    <button id="toggle-list-btn" aria-expanded="false" aria-controls="sidebar">
+      <svg width="13" height="10" viewBox="0 0 13 10" fill="currentColor" aria-hidden="true">
+        <rect y="0" width="13" height="2" rx="1"/>
+        <rect y="4" width="13" height="2" rx="1"/>
+        <rect y="8" width="13" height="2" rx="1"/>
+      </svg>
+      Liste
+    </button>
+  </header>
+
+  <main id="content">
+    <div id="map" role="region" aria-label="Carte interactive des lieux CDM 2026 dans le Rhône"></div>
+
+    <aside id="sidebar" role="complementary" aria-label="Liste des lieux de diffusion">
+      <div class="sidebar-header">
+        <div class="sidebar-handle" aria-hidden="true"></div>
+        <h2 class="sidebar-title">Tous les lieux</h2>
+        <div class="legend" id="legend" aria-label="Légende des types de lieux"></div>
+
+        <div class="search-wrap">
+          <label for="search-input" class="sr-only">Rechercher un lieu</label>
+          <input type="search" id="search-input" placeholder="Rechercher un lieu…" autocomplete="off" aria-label="Rechercher un lieu de diffusion" />
+          <span class="search-icon" aria-hidden="true">⌕</span>
+        </div>
+      </div>
+
+      <ul id="lieu-list" role="listbox" aria-label="Liste des lieux"></ul>
+    </aside>
+  </main>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+/* =============================================
+   LA CARTE
+   ============================================= */
+
+// ── Palette étendue (Strictement synchronisée avec le CSS et nettoyée des doublons) ─────────────────
+const PAL = {
+  'blue':            '#375AFE',
+  'blue-dark':       '#1B2789',
+  'blue-light':      '#8DBAFE',
+  'blue-electric':   '#3659FF',
+  'red-dark':        '#801211',
+  'red':             '#DC0203',
+  'orange':          '#FE4502',
+  'green-dark':      '#025649',
+  'green':           '#04CF5C',
+  'accent':          '#BAEE06',
+  'white':           '#FFFFFF',
+  'dark':            '#0D0D0D',
+};
+
+// ── Couleurs explicites par type de lieu ──────────────────────────────────────────────
+const TYPE_COLORS = {
+  'Brasserie': PAL['blue'],
+  'Fan-zone':   PAL['green'],
+  'XXXXXXX':      PAL['red'],
+  'XXXXXXX':    PAL['blue-dark'],
+  'XXXXXXX':          PAL['green'],
+};
+
+// Intégration de l'ensemble de la palette enrichie pour les assignations automatiques de marqueurs
+const FALLBACK_PALETTE = [
+  PAL['blue'], 
+  PAL['green'], 
+  PAL['red'], 
+  PAL['blue-dark'], 
+  PAL['blue-light'], 
+  PAL['blue-electric'], 
+  PAL['red-dark'], 
+  PAL['orange'], 
+  PAL['green-dark'], 
+  PAL['accent']
+];
+
+const typeColorCache = {};
+
+function getTypeColor(type) {
+  if (!type) return PAL['blue'];
+  if (TYPE_COLORS[type]) return TYPE_COLORS[type];
+  if (!typeColorCache[type]) {
+    const keys = Object.keys(typeColorCache);
+    typeColorCache[type] = FALLBACK_PALETTE[keys.length % FALLBACK_PALETTE.length];
+  }
+  return typeColorCache[type];
+}
+
+// ── État ──────────────────────────────────────────────────────────────────
+let allLieux = [], activeId = null, markers = {}, map = null;
+
+// ── Génération du lien d'itinéraire selon l'OS ─────────────────────────────
+function getDirectionsUrl(lat, lng, defaultUrl) {
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  const isAndroid = /android/i.test(userAgent);
+  const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+
+  if (isAndroid) {
+    return `geo:0,0?q=${lat},${lng}(Lieu de diffusion)`;
+  } 
+  else if (isIOS) {
+    return `maps://?daddr=${lat},${lng}`;
+  } 
+  else {
+    return defaultUrl || `https://maps.google.com/?q=${lat},${lng}`;
+  }
+}
+
+// ── Carte ─────────────────────────────────────────────────────────────────
+function initMap() {
+  map = L.map('map', { center: [45.76, 4.83], zoom: 11, zoomControl: true });
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    maxZoom: 19,
+    subdomains: 'abcd',
+  }).addTo(map);
+
+  map.zoomControl.setPosition('bottomright');
+}
+
+// ── Marqueur SVG ──────────────────────────────────────────────────────────
+function createMarkerIcon(lieu, active = false) {
+  const col    = getTypeColor(lieu.type);
+  const fill   = active ? PAL['blue-dark'] : col;
+  const stroke = active ? PAL['white']     : PAL['white'];
+  const shadow = active ? 'rgba(0,0,0,0.25)' : 'rgba(0,0,0,0.25)';
+
+  const svg = `<svg width="40" height="30" viewBox="0 0 40 30" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="dsf_${active?1:0}" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="2" dy="3" stdDeviation="2.5" flood-color="${shadow}"/>
+    </filter>
+  </defs>
+  <path d="M8,2 Q5,2 4,5 L4,21 Q4,24 7,24 L30,24 Q33,24 35,21 L37,5 Q38,2 35,2 Z"
+        fill="${fill}" filter="url(#dsf_${active?1:0})"/>
+  <path d="M10,5 Q8,5 7,7 L7,19 Q7,21 9,21 L28,21 Q30,21 32,19 L34,7 Q35,5 32,5 Z"
+        fill="none" stroke="${stroke}" stroke-width="1.6" opacity="0.7"/>
+</svg>`;
+
+  return L.divIcon({
+    html: `<div class="marker-wrap marker-anim" role="button" tabindex="0" aria-label="${lieu.nom}">${svg}</div>`,
+    className: '',
+    iconSize:    [40, 30],
+    iconAnchor:  [20, 15],
+    popupAnchor: [0, -18],
+  });
+}
+
+function buildPopup(lieu) {
+  const col = getTypeColor(lieu.type);
+
+  const telHTML = lieu.telephone ? `
+    <div class="popup-row">
+      <svg class="popup-icon" viewBox="0 0 24 24" fill="none" stroke="${col}" stroke-width="2.5" stroke-linecap="round">
+        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/>
+      </svg>
+      <div>
+        <span class="popup-label">Téléphone</span>
+        <a class="popup-tel" href="tel:${lieu.telephone.replace(/\s/g,'')}">${lieu.telephone}</a>
+      </div>
+    </div>` : '';
+
+  const directionUrl = getDirectionsUrl(lieu.lat, lieu.lng, lieu.googleMaps);
+  const targetAttr = /android|iPad|iPhone|iPod/i.test(navigator.userAgent || navigator.vendor || window.opera) ? '_self' : '_blank';
+
+  return `
+    <div class="popup-header" style="background:${col}">
+      <div class="popup-type-badge">${lieu.type || 'Lieu'}</div>
+      <div class="popup-nom">${lieu.nom}</div>
+    </div>
+    <div class="popup-ribbon"></div>
+    <div class="popup-body">
+      <div class="popup-row">
+        <svg class="popup-icon" viewBox="0 0 24 24" fill="none" stroke="${col}" stroke-width="2.5" stroke-linecap="round">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+        <div>
+          <span class="popup-label">Adresse</span>
+          <span class="popup-value">${lieu.adresse}</span>
+        </div>
+      </div>
+      ${telHTML}
+    </div>
+    <div class="popup-footer">
+      <a href="${directionUrl}" target="${targetAttr}" rel="noopener noreferrer"
+         class="btn-itineraire"
+         aria-label="S'y rendre à ${lieu.nom} via Google Maps">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+        </svg>
+        S'y rendre
+      </a>
+    </div>`;
+}
+
+// ── Sélection d'un lieu ────────────────────────────────────────────────────
+function selectLieu(id) {
+  const lieu = allLieux.find(l => l.id === id);
+  if (!lieu) return;
+
+  if (activeId && markers[activeId]) {
+    const prev = allLieux.find(l => l.id === activeId);
+    markers[activeId].setIcon(createMarkerIcon(prev, false));
+  }
+
+  document.querySelectorAll('.lieu-item').forEach(el => {
+    el.classList.remove('active');
+    el.setAttribute('aria-selected', 'false');
+  });
+
+  const listItem = document.querySelector(`.lieu-item[data-id="${id}"]`);
+  if (listItem) {
+    listItem.classList.add('active');
+    listItem.setAttribute('aria-selected', 'true');
+    const container = document.getElementById('lieu-list');
+    if (container) {
+      const containerRect = container.getBoundingClientRect();
+      const itemRect = listItem.getBoundingClientRect();
+
+      if (itemRect.top < containerRect.top) {
+        container.scrollBy({ top: itemRect.top - containerRect.top, behavior: 'smooth' });
+      } 
+      else if (itemRect.bottom > containerRect.bottom) {
+        container.scrollBy({ top: itemRect.bottom - containerRect.bottom, behavior: 'smooth' });
+      }
+    }
+  }
+
+  activeId = id;
+  markers[id].setIcon(createMarkerIcon(lieu, true)); 
+
+  setTimeout(() => {
+    if (markers[id]) {
+      markers[id].openPopup();
+    }
+  }, 50);
+}
+
+// ── Ajout des marqueurs ────────────────────────────────────────────────────
+function addMarkers(lieux) {
+  Object.values(markers).forEach(m => m.remove());
+  markers = {};
+
+  lieux.forEach((lieu, idx) => {
+    const marker = L.marker([lieu.lat, lieu.lng], {
+      icon: createMarkerIcon(lieu, false),
+      title: lieu.nom,
+      alt: `${lieu.nom} — ${lieu.adresse}`,
+      keyboard: true,
+    });
+
+    marker.bindPopup(buildPopup(lieu), {
+      maxWidth: 305, minWidth: 285,
+      closeButton: true, autoClose: true,
+      autoPanPaddingTopLeft: L.point(10, 80)
+    });
+
+    marker.on('click', () => selectLieu(lieu.id));
+
+    marker.on('popupclose', () => {
+      if (activeId === lieu.id) {
+        markers[lieu.id].setIcon(createMarkerIcon(lieu, false));
+        activeId = null;
+        document.querySelectorAll('.lieu-item').forEach(el => {
+          el.classList.remove('active');
+          el.setAttribute('aria-selected', 'false');
+        });
+      }
+    });
+
+    marker.on('add', () => {
+      const el = marker.getElement();
+      el?.querySelector('.marker-anim')?.style.setProperty('animation-delay', `${idx * 50}ms`);
+    });
+
+    marker.addTo(map);
+    markers[lieu.id] = marker;
+  });
+}
+
+// ── Légende ────────────────────────────────────────────────────────────────
+function renderLegend(lieux) {
+  const types = [...new Set(lieux.map(l => l.type).filter(Boolean))];
+  const el = document.getElementById('legend');
+  if (types.length <= 1) { el.style.display = 'none'; return; }
+
+  el.innerHTML = types.map(t => `
+    <div class="legend-item">
+      <div class="legend-dot" style="background:${getTypeColor(t)}"></div>
+      ${t}
+    </div>`).join('');
+}
+
+// ── Rendu liste ────────────────────────────────────────────────────────────
+function renderList(lieux) {
+  const list = document.getElementById('lieu-list');
+
+  if (!lieux.length) {
+    list.innerHTML = '<li class="empty-msg">Aucun lieu trouvé</li>';
+    return;
+  }
+
+  list.innerHTML = lieux.map(lieu => {
+    const col = getTypeColor(lieu.type);
+    return `
+      <li class="lieu-item${activeId === lieu.id ? ' active' : ''}"
+          data-id="${lieu.id}"
+          role="option" tabindex="0"
+          aria-selected="${activeId === lieu.id}"
+          aria-label="${lieu.nom}, ${lieu.adresse}">
+        <div class="lieu-body">
+          ${lieu.type ? `<div class="lieu-type-label" style="--type-color:${col}">${lieu.type}</div>` : ''}
+          <div class="lieu-nom">${lieu.nom}</div>
+          <div class="lieu-adresse">${lieu.adresse}</div>
+        </div>
+        <div class="lieu-arrow" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="4,2 10,7 4,12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </li>`;
+  }).join('');
+
+  list.querySelectorAll('.lieu-item').forEach(item => {
+    const id = parseInt(item.dataset.id);
+    const activate = () => {
+      selectLieu(id);
+      if (window.innerWidth <= 768) closeSidebar();
+    };
+    item.addEventListener('click', activate);
+    item.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); }
+    });
+  });
+}
+
+// ── Filtrage ────────────────────────────────────────────────────────────────
+function applyFilter(q) {
+  const query = q.trim().toLowerCase();
+  const filtered = query
+    ? allLieux.filter(l =>
+        l.nom.toLowerCase().includes(query) ||
+        l.adresse.toLowerCase().includes(query) ||
+        (l.type || '').toLowerCase().includes(query)
+      )
+    : allLieux;
+
+  renderList(filtered);
+  addMarkers(filtered);
+
+  if (filtered.length) {
+    map.fitBounds(
+      L.latLngBounds(filtered.map(l => [l.lat, l.lng])),
+      { padding: [40, 40], maxZoom: 14 }
+    );
+  }
+}
+
+// ── Sidebar mobile ──────────────────────────────────────────────────────────
+function openSidebar() {
+  document.getElementById('sidebar').classList.add('drawer-open');
+  const btn = document.getElementById('toggle-list-btn');
+  btn.setAttribute('aria-expanded', 'true');
+  btn.innerHTML = `
+    <svg width="12" height="12" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true">
+      <line x1="1" y1="1" x2="13" y2="13" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="13" y1="1" x2="1" y2="13" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    </svg> Fermer`;
+}
+
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('drawer-open');
+  const btn = document.getElementById('toggle-list-btn');
+  btn.setAttribute('aria-expanded', 'false');
+  btn.innerHTML = `
+    <svg width="13" height="10" viewBox="0 0 13 10" fill="currentColor" aria-hidden="true">
+      <rect y="0" width="13" height="2" rx="1"/>
+      <rect y="4" width="13" height="2" rx="1"/>
+      <rect y="8" width="13" height="2" rx="1"/>
+    </svg> Liste`;
+}
+
+// ── postMessage resize ──────────────────────────────────────────────────────
+let initialHeightSent = false;
+
+function sendHeight() {
+  if (initialHeightSent) return; 
+  initialHeightSent = true;
+  window.parent.postMessage(
+    { type: 'cdm26-resize', height: document.documentElement.scrollHeight },
+    '*'
+  );
+}
+
+// ── Bootstrap ───────────────────────────────────────────────────────────────
+async function bootstrap() {
+  initMap();
+
+  const res = await fetch('lieux.json');
+  const rawLieux = await res.json();
+
+  // On adapte le format du JSON à la volée pour conserver l'entièreté de ton code intact.
+  allLieux = rawLieux.map((lieu, index) => {
+    const baseLieu = {
+      ...lieu,
+      id: lieu.id || index // Sécurité si un ID unique manque dans ton JSON pour lier la liste aux marqueurs
+    };
+    
+    if (lieu.coordonnees && lieu.coordonnees.length === 2) {
+      baseLieu.lat = lieu.coordonnees[0];
+      baseLieu.lng = lieu.coordonnees[1];
+    }
+    return baseLieu;
+  });
+
+  renderLegend(allLieux);
+  renderList(allLieux);
+  addMarkers(allLieux);
+
+  const bounds = L.latLngBounds(allLieux.map(l => [l.lat, l.lng]));
+  map.fitBounds(bounds, { padding: [40, 40], maxZoom: 12 });
+
+  document.getElementById('search-input')
+    .addEventListener('input', e => applyFilter(e.target.value));
+
+  document.getElementById('toggle-list-btn').addEventListener('click', () => {
+    if (document.getElementById('sidebar').classList.contains('drawer-open')) {
+      closeSidebar();
+    } else {
+      map.closePopup(); 
+      openSidebar();
+    }
+  });
+
+  map.on('click', () => { if (window.innerWidth <= 768) closeSidebar(); });
+
+  sendHeight();
+}
+
+bootstrap().catch(err => console.error('Erreur CDM26:', err));
+</script>
+
+</body>
+</html>

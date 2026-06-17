@@ -1,0 +1,232 @@
+[
+    {
+        "nom": "Champ de Foire",
+        "adresse": "24 rue Victor-Hugo (Belleville-en-Beaujolais)",
+        "coordonnees": [
+            46.10754126576308,
+            4.748994589209238
+        ],
+        "type": "Fan-zone",
+        "telephone": "0980653663"
+    },
+    {
+        "nom": "La Rayonne",
+        "adresse": "7 rue Henri-Legay (Villeurbanne)",
+        "coordonnees": [
+            45.756910230730924,
+            4.916887608688285
+        ],
+        "type": "Fan-zone",
+        "telephone": ""
+    },
+    {
+        "nom": "Le Coin des copains",
+        "adresse": "136 place du 11-Novembre-1918 (Vernaison)",
+        "coordonnees": [
+            45.647054208730125,
+            4.813350559996103
+        ],
+        "type": "Fan-zone",
+        "telephone": "0478190577"
+    },
+    {
+        "nom": "Ninkasi Brignais",
+        "adresse": "2A route de Lyon (Brignais)",
+        "coordonnees": [
+            45.67757171021687,
+            4.769113768617865
+        ],
+        "type": "Brasserie",
+        "telephone": "0472317493"
+    },
+    {
+        "nom": "Ninkasi Champagne",
+        "adresse": "14-18 av. Général-de-Gaulle (Champagne-au-Mont-d'Or)",
+        "coordonnees": [
+            45.804219659246485,
+            4.783058368623671
+        ],
+        "type": "Brasserie",
+        "telephone": "0478350261"
+    },
+    {
+        "nom": "Ninkasi Cordeliers",
+        "adresse": "1 rue du Président Carnot (Lyon)",
+        "coordonnees": [
+            45.76314171982324,
+            4.837854237933207
+        ],
+        "type": "Brasserie",
+        "telephone": "0478842242"
+    },
+    {
+        "nom": "Ninkasi Gorge-de-Loup",
+        "adresse": "26 rue du Sergent Michel-Berthet (Lyon)",
+        "coordonnees": [
+            45.77151573985565,
+            4.805307555130386
+        ],
+        "type": "Brasserie",
+        "telephone": "0422914000"
+    },
+    {
+        "nom": "Ninkasi Grand Parilly",
+        "adresse": "6 rue Simone-Veil (Vénissieux)",
+        "coordonnees": [
+            45.71635144505573,
+            4.879335697455716
+        ],
+        "type": "Brasserie",
+        "telephone": "0472631289"
+    },
+    {
+        "nom": "Ninkasi Gratte-Ciel",
+        "adresse": "6 av. Henri-Barbusse (Villeurbanne)",
+        "coordonnees": [
+            45.76931344904865,
+            4.87909990909741
+        ],
+        "type": "Brasserie",
+        "telephone": "0422917648"
+    },
+    {
+        "nom": "Ninkasi Guillotière",
+        "adresse": "2 pl. Antonin-Jutard (Lyon)",
+        "coordonnees": [
+            45.756394126792706,
+            4.841137526293647
+        ],
+        "type": "Brasserie",
+        "telephone": "0422918922"
+    },
+    {
+        "nom": "Ninkasi La Soie",
+        "adresse": "34 rue de la Soie (Villeurbanne)",
+        "coordonnees": [
+            45.761112431027215,
+            4.919557282113467
+        ],
+        "type": "Brasserie",
+        "telephone": "0451236561"
+    },
+    {
+        "nom": "Ninkasi OL Vallée",
+        "adresse": "2 av. Simone-Veil (Décines-Charpieu)",
+        "coordonnees": [
+            45.767411985825845,
+            4.98014643978588
+        ],
+        "type": "Brasserie",
+        "telephone": "0478584124"
+    },
+    {
+        "nom": "Ninkasi Part-Dieu",
+        "adresse": "59 rue Desaix (Lyon)",
+        "coordonnees": [
+            45.75787373992917,
+            4.858260197457633
+        ],
+        "type": "Brasserie",
+        "telephone": "0487258345"
+    },
+    {
+        "nom": "Ninkasi Vaise",
+        "adresse": "8 rue de la Navigation (Lyon)",
+        "coordonnees": [
+            45.78842525372809,
+            4.812825197458989
+        ],
+        "type": "Brasserie",
+        "telephone": "0422918994"
+    },
+    {
+        "nom": "Ninkasi Villefranche",
+        "adresse": "24 pl. Simone-Veil (Villefranche-sur-Saône)",
+        "coordonnees": [
+            45.990259517666715,
+            4.723822610960015
+        ],
+        "type": "Brasserie",
+        "telephone": "0422918971"
+    },
+    {
+        "nom": "Parc Louis-Dupic",
+        "adresse": "21 rue Gambetta (Vénissieux)",
+        "coordonnees": [
+            45.69800326096907,
+            4.885006625086146
+        ],
+        "type": "Fan-zone",
+        "telephone": ""
+    },
+    {
+        "nom": "Parc Louis-Nicollin",
+        "adresse": "66 rue Carnot (Saint-Fons)",
+        "coordonnees": [
+            45.707615945777995,
+            4.86425782617102
+        ],
+        "type": "Fan-zone",
+        "telephone": ""
+    },
+    {
+        "nom": "Salle des fêtes de Corbas",
+        "adresse": "Pl. Charles-Jocteur (Corbas)",
+        "coordonnees": [
+            45.67104903295366,
+            4.898778153108723
+        ],
+        "type": "Fan-zone",
+        "telephone": ""
+    },
+    {
+        "nom": "Salle des fêtes de Pommiers",
+        "adresse": "Pl. du 11-Novembre (Pommiers)",
+        "coordonnees": [
+            45.95486020170932,
+            4.692473655138745
+        ],
+        "type": "Fan-zone",
+        "telephone": ""
+    },
+    {
+        "nom": "Stade Armand-Chouffet",
+        "adresse": "806 bd Général-Leclerc (Villefranche-sur-Saône)",
+        "coordonnees": [
+            46.00011612271083,
+            4.707279197325878
+        ],
+        "type": "Fan-zone",
+        "telephone": ""
+    },
+    {
+        "nom": "Stade Auguste-Delaune",
+        "adresse": "10 rue des Martyrs de la Résistance (Vénissieux)",
+        "coordonnees": [
+            45.69146669455373,
+            4.8700027690010055
+        ],
+        "type": "Fan-zone",
+        "telephone": ""
+    },
+    {
+        "nom": "Stade Laurent-Gérin",
+        "adresse": "Av. Jacques-Duclos (Vénissieux)",
+        "coordonnees": [
+            45.69653801872498,
+            4.89294525648796
+        ],
+        "type": "Fan-zone",
+        "telephone": ""
+    },
+    {
+        "nom": "The People",
+        "adresse": "10 montée des Carmélites (Lyon)",
+        "coordonnees": [
+            45.771813412056765,
+            4.827381912183581
+        ],
+        "type": "Fan-zone",
+        "telephone": "0428018602"
+    }
+]
