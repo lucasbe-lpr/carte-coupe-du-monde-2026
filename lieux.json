@@ -1,5 +1,25 @@
 [
     {
+        "nom": "Bistrot 96",
+        "adresse": "96 av. des Frères Lumière (Lyon)",
+        "coordonnees": [
+            45.744752833684466,
+            4.867799384537991
+        ],
+        "type": "Brasserie",
+        "telephone": "0478008546"
+    },
+    {
+        "nom": "Black Hole",
+        "adresse": "1 rue de la Baleine (Lyon)",
+        "coordonnees": [
+            45.763435403617805,
+            4.828943855130005
+        ],
+        "type": "Bar",
+        "telephone": "0974640210"
+    },
+    {
         "nom": "Champ de Foire",
         "adresse": "24 rue Victor-Hugo (Belleville-en-Beaujolais)",
         "coordonnees": [
@@ -8,6 +28,86 @@
         ],
         "type": "Fan-zone",
         "telephone": "0980653663"
+    },
+    {
+        "nom": "Chez Tintin",
+        "adresse": "4 rue Octavio-Mey (Lyon)",
+        "coordonnees": [
+            45.76629982396302,
+            4.828145641638381
+        ],
+        "type": "Bar",
+        "telephone": ""
+    },
+    {
+        "nom": "Flan' Ruin Pub",
+        "adresse": "12 rue du Griffon (Lyon)",
+        "coordonnees": [
+            45.768788230576064,
+            4.836209912802401
+        ],
+        "type": "Bar",
+        "telephone": "0478725168"
+    },
+    {
+        "nom": "G5",
+        "adresse": "76 rue de la Charité (Lyon)",
+        "coordonnees": [
+            45.7501687139381,
+            4.82992658396547
+        ],
+        "type": "Bar",
+        "telephone": ""
+    },
+    {
+        "nom": "Groom",
+        "adresse": "6 rue Roger-Violi (Lyon)",
+        "coordonnees": [
+            45.77068865931558,
+            4.836937597458204
+        ],
+        "type": "Bar",
+        "telephone": "0974735268"
+    },
+    {
+        "nom": "Heat",
+        "adresse": "70 quai Perrache (Lyon)",
+        "coordonnees": [
+            45.73727931757404,
+            4.820313323915931
+        ],
+        "type": "Fan-zone",
+        "telephone": ""
+    },
+    {
+        "nom": "Justin",
+        "adresse": "4 cours Saint-Martin (Lyon)",
+        "coordonnees": [
+            45.75824602486246,
+            4.836084839785487
+        ],
+        "type": "Bar",
+        "telephone": ""
+    },
+    {
+        "nom": "King Arthur",
+        "adresse": "10 rue de la Monnaie (Lyon)",
+        "coordonnees": [
+            45.76171100513296,
+            4.832370085818505
+        ],
+        "type": "Bar",
+        "telephone": "0478601162"
+    },
+    {
+        "nom": "La Commune",
+        "adresse": "3 rue Pré-Gaudry (Lyon)",
+        "coordonnees": [
+            45.742279713163974,
+            4.834064716204303
+        ],
+        "type": "Fan-zone",
+        "telephone": ""
     },
     {
         "nom": "La Rayonne",
@@ -20,6 +120,16 @@
         "telephone": ""
     },
     {
+        "nom": "Le 42",
+        "adresse": "42 quai de Pierre-Scize (Lyon)",
+        "coordonnees": [
+            45.76636418835645,
+            4.818504912802284
+        ],
+        "type": "Bar",
+        "telephone": ""
+    },
+    {
         "nom": "Le Coin des copains",
         "adresse": "136 place du 11-Novembre-1918 (Vernaison)",
         "coordonnees": [
@@ -28,6 +138,56 @@
         ],
         "type": "Fan-zone",
         "telephone": "0478190577"
+    },
+    {
+        "nom": "Le Pharaon",
+        "adresse": "70 quai Charles-de-Gaulle (Lyon)",
+        "coordonnees": [
+            45.78477600559539,
+            4.852666865588398
+        ],
+        "type": "Casino",
+        "telephone": "0478175353"
+    },
+    {
+        "nom": "Le République",
+        "adresse": "Pl. de l'hôpital (Lyon)",
+        "coordonnees": [
+            45.7595097571764,
+            4.8358272667691
+        ],
+        "type": "Brasserie",
+        "telephone": "0478425956"
+    },
+    {
+        "nom": "Les Canailles de Raphaël",
+        "adresse": "32 rue Tête-d'Or (Lyon)",
+        "coordonnees": [
+            45.770578992045515,
+            4.851909426294262
+        ],
+        "type": "Bar",
+        "telephone": "0967420469"
+    },
+    {
+        "nom": "Mos Mercière",
+        "adresse": "35 rue Mercière (Lyon)",
+        "coordonnees": [
+            45.76303585912977,
+            4.832731096270224
+        ],
+        "type": "Brasserie",
+        "telephone": ""
+    },
+    {
+        "nom": "My Beers",
+        "adresse": "97 cours Charlemagne (Lyon)",
+        "coordonnees": [
+            45.741813793146015,
+            4.820261013865381
+        ],
+        "type": "Bar",
+        "telephone": "0478421688"
     },
     {
         "nom": "Ninkasi Brignais",
@@ -170,6 +330,16 @@
         "telephone": ""
     },
     {
+        "nom": "Pasino Grand",
+        "adresse": "200 av. du Casino (La Tour-de-Salvagny)",
+        "coordonnees": [
+            45.78843489112256,
+            4.731503526966616
+        ],
+        "type": "Casino",
+        "telephone": "0478870270"
+    },
+    {
         "nom": "Salle des fêtes de Corbas",
         "adresse": "Pl. Charles-Jocteur (Corbas)",
         "coordonnees": [
@@ -220,6 +390,16 @@
         "telephone": ""
     },
     {
+        "nom": "Tank",
+        "adresse": "45 rue de Gerland (Lyon)",
+        "coordonnees": [
+            45.73987538988882,
+            4.840645484623736
+        ],
+        "type": "Bar",
+        "telephone": "0437653653"
+    },
+    {
         "nom": "The People",
         "adresse": "10 montée des Carmélites (Lyon)",
         "coordonnees": [
@@ -228,5 +408,15 @@
         ],
         "type": "Fan-zone",
         "telephone": "0428018602"
+    },
+    {
+        "nom": "Wallace",
+        "adresse": "2 rue Octavio-Mey (Lyon)",
+        "coordonnees": [
+            45.766374545374205,
+            4.82839464163839
+        ],
+        "type": "Bar",
+        "telephone": "0472002391"
     }
 ]
