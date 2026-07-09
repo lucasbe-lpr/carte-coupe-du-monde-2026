@@ -130,6 +130,16 @@
         "telephone": "0974735268"
     },
     {
+        "nom": "Hacienda",
+        "adresse": "Route de Chasselay (Lissieu)",
+        "coordonnees": [
+            45.87153659378433,
+            4.746361755134935
+        ],
+        "type": "Autres",
+        "telephone": "0472090095"
+    },
+    {
         "nom": "Heat",
         "adresse": "70 quai Perrache (Lyon)",
         "coordonnees": [
