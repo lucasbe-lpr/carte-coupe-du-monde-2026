@@ -428,5 +428,15 @@
         ],
         "type": "Bar",
         "telephone": "0472002391"
+    },
+    {
+        "nom": "Paddy's Corner",
+        "adresse": "4 rue de la Terrasse (Lyon)",
+        "coordonnees": [
+            45.77481165774433,
+            4.8309447396220815
+        ],
+        "type": "Bar",
+        "telephone": "0952112176"
     }
 ]
