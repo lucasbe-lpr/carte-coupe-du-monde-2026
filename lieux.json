@@ -40,6 +40,16 @@
         "telephone": ""
     },
     {
+        "nom": "ConfluTime",
+        "adresse": "Espl. François-Mitterrand (Lyon)",
+        "coordonnees": [
+            45.741228198359266,
+            4.821262150899709
+        ],
+        "type": "Bar",
+        "telephone": "0437574355"
+    },
+    {
         "nom": "Flan' Ruin Pub",
         "adresse": "12 rue du Griffon (Lyon)",
         "coordonnees": [
