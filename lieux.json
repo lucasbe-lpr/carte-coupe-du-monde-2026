@@ -1,5 +1,45 @@
 [
     {
+        "nom": "Au Fût Lyon",
+        "adresse": "18 bd des Brotteaux (Lyon)",
+        "coordonnees": [
+            45.768996257384174,
+            4.856537120736686
+        ],
+        "type": "Brasserie",
+        "telephone": "0664104074"
+    },
+    {
+        "nom": "Au Fût Parc OL",
+        "adresse": "2 av. Simone-Veil (Décines-Charpieu)",
+        "coordonnees": [
+            45.767260065295694,
+            4.9809035109498465
+        ],
+        "type": "Brasserie",
+        "telephone": ""
+    },
+    {
+        "nom": "Bar a Bro",
+        "adresse": "68 av. Édouard Millaud (Craponne)",
+        "coordonnees": [
+            45.74759717321677,
+            4.7260055686210665
+        ],
+        "type": "Bar",
+        "telephone": "0749558450"
+    },
+    {
+        "nom": "Bière des Loups",
+        "adresse": "Chavagneux (Chaussan)",
+        "coordonnees": [
+            45.62213615803391,
+            4.62001485760384
+        ],
+        "type": "Brasserie",
+        "telephone": "0682268279"
+    },
+    {
         "nom": "Bistrot 96",
         "adresse": "96 av. des Frères Lumière (Lyon)",
         "coordonnees": [
@@ -18,6 +58,16 @@
         ],
         "type": "Bar",
         "telephone": "0974640210"
+    },
+    {
+        "nom": "Café Oz",
+        "adresse": "4 quai Victor-Augagneur (Lyon)",
+        "coordonnees": [
+            45.76185821382299,
+            4.840886786599553
+        ],
+        "type": "Bar",
+        "telephone": "0481919580"
     },
     {
         "nom": "Champ de Foire",
@@ -90,6 +140,16 @@
         "telephone": ""
     },
     {
+        "nom": "Hoppy",
+        "adresse": "159 cours Lafayette (Lyon)",
+        "coordonnees": [
+            45.763856667258345,
+            4.855079326133738
+        ],
+        "type": "Brasserie",
+        "telephone": "0458282578"
+    },
+    {
         "nom": "Justin",
         "adresse": "4 cours Saint-Martin (Lyon)",
         "coordonnees": [
@@ -108,6 +168,36 @@
         ],
         "type": "Bar",
         "telephone": "0478601162"
+    },
+    {
+        "nom": "L'Écu-lys",
+        "adresse": "10 av. Raymond-de-Veyssière (Écully)",
+        "coordonnees": [
+            45.77448696948322,
+            4.779788026294468
+        ],
+        "type": "Bar",
+        "telephone": ""
+    },
+    {
+        "nom": "L'Épicerie Moderne",
+        "adresse": "Pl. René-Lescot (Feyzin)",
+        "coordonnees": [
+            45.67377950191831,
+            4.858514714650559
+        ],
+        "type": "Autres",
+        "telephone": "0472899870"
+    },
+    {
+        "nom": "La Cervoiserie",
+        "adresse": "332 av. Général-de-Gaulle (Bron)",
+        "coordonnees": [
+            45.72556692775946,
+            4.929256556980753
+        ],
+        "type": "Bar",
+        "telephone": "0478523934"
     },
     {
         "nom": "La Commune",
@@ -130,6 +220,26 @@
         "telephone": ""
     },
     {
+        "nom": "La Relève",
+        "adresse": "5 rue Octavio-Mey (Lyon)",
+        "coordonnees": [
+            45.766053008496044,
+            4.82801136743505
+        ],
+        "type": "Bar",
+        "telephone": "0424410559"
+    },
+    {
+        "nom": "La Station",
+        "adresse": "2 pl. de Paris (Lyon)",
+        "coordonnees": [
+            45.780544832998835,
+            4.807468527583033
+        ],
+        "type": "Brasserie",
+        "telephone": ""
+    },
+    {
         "nom": "Le 42",
         "adresse": "42 quai de Pierre-Scize (Lyon)",
         "coordonnees": [
@@ -140,6 +250,16 @@
         "telephone": ""
     },
     {
+        "nom": "Le ch'ti Pot Ney",
+        "adresse": "39 rue Ney (Lyon)",
+        "coordonnees": [
+            45.7689658254511,
+            4.855941750900969
+        ],
+        "type": "Bar",
+        "telephone": "0960370410"
+    },
+    {
         "nom": "Le Coin des copains",
         "adresse": "136 place du 11-Novembre-1918 (Vernaison)",
         "coordonnees": [
@@ -148,6 +268,16 @@
         ],
         "type": "Fan-zone",
         "telephone": "0478190577"
+    },
+    {
+        "nom": "Le Lyon's",
+        "adresse": "46 av. Paul-Santy (Lyon)",
+        "coordonnees": [
+            45.732910569123504,
+            4.872693091374658
+        ],
+        "type": "Bar",
+        "telephone": "0974641139"
     },
     {
         "nom": "Le Pharaon",
@@ -178,6 +308,26 @@
         ],
         "type": "Bar",
         "telephone": "0967420469"
+    },
+    {
+        "nom": "Livestation DIY",
+        "adresse": "14 rue de Bonald (Lyon)",
+        "coordonnees": [
+            45.75352922595336,
+            4.841238243103931
+        ],
+        "type": "Autres",
+        "telephone": "0426018739"
+    },
+    {
+        "nom": "MacBar",
+        "adresse": "81 quai Charles-de-Gaulle, (Lyon)",
+        "coordonnees": [
+            45.78445259150511,
+            4.851165822199649
+        ],
+        "type": "Bar",
+        "telephone": "0603195587"
     },
     {
         "nom": "Mos Mercière",
@@ -320,6 +470,26 @@
         "telephone": "0422918971"
     },
     {
+        "nom": "O'4 Ballons",
+        "adresse": "2 pl. de la Madeleine (Tarare)",
+        "coordonnees": [
+            45.89556324380393,
+            4.435665268627838
+        ],
+        "type": "Bar",
+        "telephone": "0474635378"
+    },
+    {
+        "nom": "Paddy's Corner",
+        "adresse": "4 rue de la Terrasse (Lyon)",
+        "coordonnees": [
+            45.77481165774433,
+            4.8309447396220815
+        ],
+        "type": "Bar",
+        "telephone": "0952112176"
+    },
+    {
         "nom": "Parc Louis-Dupic",
         "adresse": "21 rue Gambetta (Vénissieux)",
         "coordonnees": [
@@ -335,6 +505,16 @@
         "coordonnees": [
             45.707615945777995,
             4.86425782617102
+        ],
+        "type": "Fan-zone",
+        "telephone": ""
+    },
+    {
+        "nom": "Parc Manillier",
+        "adresse": "107 rue Ampère (Oullins-Pierre-Bénite)",
+        "coordonnees": [
+            45.70378708325608,
+            4.820092693225837
         ],
         "type": "Fan-zone",
         "telephone": ""
@@ -420,6 +600,26 @@
         "telephone": "0428018602"
     },
     {
+        "nom": "UrbanSoccer Barolles",
+        "adresse": "36 chem. de Sacuny (Brignais)",
+        "coordonnees": [
+            45.683821329276775,
+            4.772518795601728
+        ],
+        "type": "Autres",
+        "telephone": "0478050985"
+    },
+    {
+        "nom": "UrbanSoccer Dardilly",
+        "adresse": "11 chem. des Pins (Dardilly)",
+        "coordonnees": [
+            45.79259795434392,
+            4.739496441787855
+        ],
+        "type": "Autres",
+        "telephone": "0481884630"
+    },
+    {
         "nom": "Wallace",
         "adresse": "2 rue Octavio-Mey (Lyon)",
         "coordonnees": [
@@ -428,15 +628,5 @@
         ],
         "type": "Bar",
         "telephone": "0472002391"
-    },
-    {
-        "nom": "Paddy's Corner",
-        "adresse": "4 rue de la Terrasse (Lyon)",
-        "coordonnees": [
-            45.77481165774433,
-            4.8309447396220815
-        ],
-        "type": "Bar",
-        "telephone": "0952112176"
     }
 ]
