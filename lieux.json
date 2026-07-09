@@ -3,8 +3,8 @@
         "nom": "Au Bureau Brignais",
         "adresse": "1 rue de l'Industrie (Brignais)",
         "coordonnees": [
-            45.68225857243932,
-            4.774604847158465
+            45.67817870675401,
+            4.775269687807147
         ],
         "type": "Brasserie",
         "telephone": "0478790696"
@@ -13,8 +13,8 @@
         "nom": "Au Bureau Vaulx-en-Velin",
         "adresse": "3 av. de Bohlen (Vaulx-en-Velin)",
         "coordonnees": [
-            45.76539395615395,
-            4.92268187501782
+            45.76523122388548,
+            4.9218123021620945
         ],
         "type": "Brasserie",
         "telephone": "0963444835"
@@ -23,8 +23,8 @@
         "nom": "Au Fût Lyon",
         "adresse": "18 bd des Brotteaux (Lyon)",
         "coordonnees": [
-            45.768996257384174,
-            4.856537120736686
+            45.76875066602779,
+            4.856758456406041
         ],
         "type": "Brasserie",
         "telephone": "0664104074"
@@ -33,8 +33,8 @@
         "nom": "Au Fût Parc OL",
         "adresse": "2 av. Simone-Veil (Décines-Charpieu)",
         "coordonnees": [
-            45.767260065295694,
-            4.9809035109498465
+            45.76715626899575,
+            4.980928671102509
         ],
         "type": "Brasserie",
         "telephone": ""
@@ -43,8 +43,8 @@
         "nom": "Bar a Bro",
         "adresse": "68 av. Édouard Millaud (Craponne)",
         "coordonnees": [
-            45.74759717321677,
-            4.7260055686210665
+            45.747457627841136,
+            4.726020811721402
         ],
         "type": "Bar",
         "telephone": "0749558450"
@@ -53,8 +53,8 @@
         "nom": "Bière des Loups",
         "adresse": "Chavagneux (Chaussan)",
         "coordonnees": [
-            45.62213615803391,
-            4.62001485760384
+            45.622004328807314,
+            4.619873727671704
         ],
         "type": "Brasserie",
         "telephone": "0682268279"
@@ -63,8 +63,8 @@
         "nom": "Bistrot 96",
         "adresse": "96 av. des Frères Lumière (Lyon)",
         "coordonnees": [
-            45.744752833684466,
-            4.867799384537991
+            45.74455604267709,
+            4.867850718188003
         ],
         "type": "Brasserie",
         "telephone": "0478008546"
@@ -73,8 +73,8 @@
         "nom": "Black Hole",
         "adresse": "1 rue de la Baleine (Lyon)",
         "coordonnees": [
-            45.763435403617805,
-            4.828943855130005
+            45.7632532477755,
+            4.828939545814553
         ],
         "type": "Bar",
         "telephone": "0974640210"
@@ -83,8 +83,8 @@
         "nom": "Café Oz",
         "adresse": "4 quai Victor-Augagneur (Lyon)",
         "coordonnees": [
-            45.76185821382299,
-            4.840886786599553
+            45.76180526964452,
+            4.840558072856018
         ],
         "type": "Bar",
         "telephone": "0481919580"
@@ -93,8 +93,8 @@
         "nom": "Champ de Foire",
         "adresse": "24 rue Victor-Hugo (Belleville-en-Beaujolais)",
         "coordonnees": [
-            46.10754126576308,
-            4.748994589209238
+            46.10740042096939,
+            4.748979572714242
         ],
         "type": "Fan-zone",
         "telephone": "0980653663"
@@ -103,8 +103,8 @@
         "nom": "Chez Tintin",
         "adresse": "4 rue Octavio-Mey (Lyon)",
         "coordonnees": [
-            45.76629982396302,
-            4.828145641638381
+            45.76622763161879,
+            4.828116908463609
         ],
         "type": "Bar",
         "telephone": ""
@@ -113,8 +113,8 @@
         "nom": "ConfluTime",
         "adresse": "Espl. François-Mitterrand (Lyon)",
         "coordonnees": [
-            45.741228198359266,
-            4.821262150899709
+            45.74113145634581,
+            4.820831482570684
         ],
         "type": "Bar",
         "telephone": "0437574355"
@@ -123,8 +123,8 @@
         "nom": "Flan' Ruin Pub",
         "adresse": "12 rue du Griffon (Lyon)",
         "coordonnees": [
-            45.768788230576064,
-            4.836209912802401
+            45.768672870911104,
+            4.836167369624796
         ],
         "type": "Bar",
         "telephone": "0478725168"
@@ -133,8 +133,8 @@
         "nom": "G5",
         "adresse": "76 rue de la Charité (Lyon)",
         "coordonnees": [
-            45.7501687139381,
-            4.82992658396547
+            45.75002365745077,
+            4.829897095220456
         ],
         "type": "Bar",
         "telephone": ""
@@ -143,8 +143,8 @@
         "nom": "Groom",
         "adresse": "6 rue Roger-Violi (Lyon)",
         "coordonnees": [
-            45.77068865931558,
-            4.836937597458204
+            45.77059236072127,
+            4.83693570303186
         ],
         "type": "Bar",
         "telephone": "0974735268"
@@ -153,8 +153,8 @@
         "nom": "Hacienda",
         "adresse": "Route de Chasselay (Lissieu)",
         "coordonnees": [
-            45.87153659378433,
-            4.746361755134935
+            45.871429284345325,
+            4.746341157189594
         ],
         "type": "Autres",
         "telephone": "0472090095"
@@ -163,8 +163,8 @@
         "nom": "Heat",
         "adresse": "70 quai Perrache (Lyon)",
         "coordonnees": [
-            45.73727931757404,
-            4.820313323915931
+            45.73718327634699,
+            4.819818242592862
         ],
         "type": "Fan-zone",
         "telephone": ""
@@ -173,8 +173,8 @@
         "nom": "Hoppy",
         "adresse": "159 cours Lafayette (Lyon)",
         "coordonnees": [
-            45.763856667258345,
-            4.855079326133738
+            45.76382999195303,
+            4.855099599193681
         ],
         "type": "Brasserie",
         "telephone": "0458282578"
@@ -183,8 +183,8 @@
         "nom": "Justin",
         "adresse": "4 cours Saint-Martin (Lyon)",
         "coordonnees": [
-            45.75824602486246,
-            4.836084839785487
+            45.75817116382747,
+            4.836105298025068
         ],
         "type": "Bar",
         "telephone": ""
@@ -193,8 +193,8 @@
         "nom": "King Arthur",
         "adresse": "10 rue de la Monnaie (Lyon)",
         "coordonnees": [
-            45.76171100513296,
-            4.832370085818505
+            45.76162793489706,
+            4.832262654158116
         ],
         "type": "Bar",
         "telephone": "0478601162"
@@ -203,8 +203,8 @@
         "nom": "L'Écu-lys",
         "adresse": "10 av. Raymond-de-Veyssière (Écully)",
         "coordonnees": [
-            45.77448696948322,
-            4.779788026294468
+            45.77439889750054,
+            4.779778124732997
         ],
         "type": "Bar",
         "telephone": ""
@@ -213,8 +213,8 @@
         "nom": "L'Épicerie Moderne",
         "adresse": "Pl. René-Lescot (Feyzin)",
         "coordonnees": [
-            45.67377950191831,
-            4.858514714650559
+            45.673625157603674,
+            4.8583978391362095
         ],
         "type": "Autres",
         "telephone": "0472899870"
@@ -223,8 +223,8 @@
         "nom": "La Cervoiserie",
         "adresse": "332 av. Général-de-Gaulle (Bron)",
         "coordonnees": [
-            45.72556692775946,
-            4.929256556980753
+            45.725461386249336,
+            4.929159147105038
         ],
         "type": "Bar",
         "telephone": "0478523934"
@@ -233,8 +233,8 @@
         "nom": "La Commune",
         "adresse": "3 rue Pré-Gaudry (Lyon)",
         "coordonnees": [
-            45.742279713163974,
-            4.834064716204303
+            45.7421789217397,
+            4.833985879762116
         ],
         "type": "Fan-zone",
         "telephone": ""
@@ -243,8 +243,8 @@
         "nom": "La Feria",
         "adresse": "13 quai Romain-Rolland (Lyon)",
         "coordonnees": [
-            45.7636836334848,
-            4.828964599310372
+            45.76351908703384,
+            4.828889693258852
         ],
         "type": "Bar",
         "telephone": "0633970300"
@@ -253,8 +253,8 @@
         "nom": "La Rayonne",
         "adresse": "7 rue Henri-Legay (Villeurbanne)",
         "coordonnees": [
-            45.756910230730924,
-            4.916887608688285
+            45.75671324392632,
+            4.9168614288390735
         ],
         "type": "Fan-zone",
         "telephone": ""
@@ -263,8 +263,8 @@
         "nom": "La Relève",
         "adresse": "5 rue Octavio-Mey (Lyon)",
         "coordonnees": [
-            45.766053008496044,
-            4.82801136743505
+            45.76596418075054,
+            4.828056024163712
         ],
         "type": "Bar",
         "telephone": "0424410559"
@@ -273,8 +273,8 @@
         "nom": "La Station",
         "adresse": "2 pl. de Paris (Lyon)",
         "coordonnees": [
-            45.780544832998835,
-            4.807468527583033
+            45.82262032267536,
+            4.996708438638939
         ],
         "type": "Brasserie",
         "telephone": ""
@@ -283,8 +283,8 @@
         "nom": "Le 42",
         "adresse": "42 quai de Pierre-Scize (Lyon)",
         "coordonnees": [
-            45.76636418835645,
-            4.818504912802284
+            45.76622937044605,
+            4.818459237063512
         ],
         "type": "Bar",
         "telephone": ""
@@ -293,8 +293,8 @@
         "nom": "Le ch'ti Pot Ney",
         "adresse": "39 rue Ney (Lyon)",
         "coordonnees": [
-            45.7689658254511,
-            4.855941750900969
+            45.76870475227534,
+            4.855439540112089
         ],
         "type": "Bar",
         "telephone": "0960370410"
@@ -303,8 +303,8 @@
         "nom": "Le Coin des copains",
         "adresse": "136 place du 11-Novembre-1918 (Vernaison)",
         "coordonnees": [
-            45.647054208730125,
-            4.813350559996103
+            45.64703944628432,
+            4.813322812604304
         ],
         "type": "Fan-zone",
         "telephone": "0478190577"
@@ -313,8 +313,8 @@
         "nom": "Le Lyon's",
         "adresse": "46 av. Paul-Santy (Lyon)",
         "coordonnees": [
-            45.732910569123504,
-            4.872693091374658
+            45.732778949704645,
+            4.872357772644691
         ],
         "type": "Bar",
         "telephone": "0974641139"
@@ -323,8 +323,8 @@
         "nom": "Le Pharaon",
         "adresse": "70 quai Charles-de-Gaulle (Lyon)",
         "coordonnees": [
-            45.78477600559539,
-            4.852666865588398
+            45.784738121507026,
+            4.852781889725587
         ],
         "type": "Casino",
         "telephone": "0478175353"
@@ -333,8 +333,8 @@
         "nom": "Le République",
         "adresse": "Pl. de l'hôpital (Lyon)",
         "coordonnees": [
-            45.7595097571764,
-            4.8358272667691
+            45.759296374614244,
+            4.835909426107816
         ],
         "type": "Brasserie",
         "telephone": "0478425956"
@@ -343,8 +343,8 @@
         "nom": "Les Canailles de Raphaël",
         "adresse": "32 rue Tête-d'Or (Lyon)",
         "coordonnees": [
-            45.770578992045515,
-            4.851909426294262
+            45.77049334791807,
+            4.851898932322555
         ],
         "type": "Bar",
         "telephone": "0967420469"
@@ -353,8 +353,8 @@
         "nom": "Livestation DIY",
         "adresse": "14 rue de Bonald (Lyon)",
         "coordonnees": [
-            45.75352922595336,
-            4.841238243103931
+            45.753166931611034,
+            4.839944804037993
         ],
         "type": "Autres",
         "telephone": "0426018739"
@@ -363,8 +363,8 @@
         "nom": "MacBar",
         "adresse": "81 quai Charles-de-Gaulle, (Lyon)",
         "coordonnees": [
-            45.78445259150511,
-            4.851165822199649
+            45.78422823481842,
+            4.852447230270523
         ],
         "type": "Bar",
         "telephone": "0603195587"
@@ -373,8 +373,8 @@
         "nom": "Mos Mercière",
         "adresse": "35 rue Mercière (Lyon)",
         "coordonnees": [
-            45.76303585912977,
-            4.832731096270224
+            45.76296732012243,
+            4.8327641961657575
         ],
         "type": "Brasserie",
         "telephone": ""
@@ -383,8 +383,8 @@
         "nom": "My Beers",
         "adresse": "97 cours Charlemagne (Lyon)",
         "coordonnees": [
-            45.741813793146015,
-            4.820261013865381
+            45.741303728204834,
+            4.820345290254308
         ],
         "type": "Bar",
         "telephone": "0478421688"
@@ -393,8 +393,8 @@
         "nom": "Ninkasi Brignais",
         "adresse": "2A route de Lyon (Brignais)",
         "coordonnees": [
-            45.67757171021687,
-            4.769113768617865
+            45.67745010576462,
+            4.769123514976638
         ],
         "type": "Brasserie",
         "telephone": "0472317493"
@@ -403,8 +403,8 @@
         "nom": "Ninkasi Champagne",
         "adresse": "14-18 av. Général-de-Gaulle (Champagne-au-Mont-d'Or)",
         "coordonnees": [
-            45.804219659246485,
-            4.783058368623671
+            45.80409816025242,
+            4.783058751959731
         ],
         "type": "Brasserie",
         "telephone": "0478350261"
@@ -413,8 +413,8 @@
         "nom": "Ninkasi Cordeliers",
         "adresse": "1 rue du Président Carnot (Lyon)",
         "coordonnees": [
-            45.76314171982324,
-            4.837854237933207
+            45.762966671516814,
+            4.837949859003813
         ],
         "type": "Brasserie",
         "telephone": "0478842242"
@@ -423,8 +423,8 @@
         "nom": "Ninkasi Gorge-de-Loup",
         "adresse": "26 rue du Sergent Michel-Berthet (Lyon)",
         "coordonnees": [
-            45.77151573985565,
-            4.805307555130386
+            45.77145364798364,
+            4.805284964271162
         ],
         "type": "Brasserie",
         "telephone": "0422914000"
@@ -433,8 +433,8 @@
         "nom": "Ninkasi Grand Parilly",
         "adresse": "6 rue Simone-Veil (Vénissieux)",
         "coordonnees": [
-            45.71635144505573,
-            4.879335697455716
+            45.71624224569577,
+            4.879333837823697
         ],
         "type": "Brasserie",
         "telephone": "0472631289"
@@ -443,8 +443,8 @@
         "nom": "Ninkasi Gratte-Ciel",
         "adresse": "6 av. Henri-Barbusse (Villeurbanne)",
         "coordonnees": [
-            45.76931344904865,
-            4.87909990909741
+            45.76916041486147,
+            4.879206525963789
         ],
         "type": "Brasserie",
         "telephone": "0422917648"
@@ -453,8 +453,8 @@
         "nom": "Ninkasi Guillotière",
         "adresse": "2 pl. Antonin-Jutard (Lyon)",
         "coordonnees": [
-            45.756394126792706,
-            4.841137526293647
+            45.756263916218074,
+            4.8411284549720115
         ],
         "type": "Brasserie",
         "telephone": "0422918922"
@@ -463,8 +463,8 @@
         "nom": "Ninkasi La Soie",
         "adresse": "34 rue de la Soie (Villeurbanne)",
         "coordonnees": [
-            45.761112431027215,
-            4.919557282113467
+            45.76099033201433,
+            4.919592150830693
         ],
         "type": "Brasserie",
         "telephone": "0451236561"
@@ -473,8 +473,8 @@
         "nom": "Ninkasi OL Vallée",
         "adresse": "2 av. Simone-Veil (Décines-Charpieu)",
         "coordonnees": [
-            45.767411985825845,
-            4.98014643978588
+            45.76727278386206,
+            4.980165903676107
         ],
         "type": "Brasserie",
         "telephone": "0478584124"
@@ -483,8 +483,8 @@
         "nom": "Ninkasi Part-Dieu",
         "adresse": "59 rue Desaix (Lyon)",
         "coordonnees": [
-            45.75787373992917,
-            4.858260197457633
+            45.75781136569867,
+            4.858240985684739
         ],
         "type": "Brasserie",
         "telephone": "0487258345"
@@ -493,8 +493,8 @@
         "nom": "Ninkasi Vaise",
         "adresse": "8 rue de la Navigation (Lyon)",
         "coordonnees": [
-            45.78842525372809,
-            4.812825197458989
+            45.788293182500965,
+            4.812809603186423
         ],
         "type": "Brasserie",
         "telephone": "0422918994"
@@ -503,8 +503,8 @@
         "nom": "Ninkasi Villefranche",
         "adresse": "24 pl. Simone-Veil (Villefranche-sur-Saône)",
         "coordonnees": [
-            45.990259517666715,
-            4.723822610960015
+            45.99008437866451,
+            4.723852919687195
         ],
         "type": "Brasserie",
         "telephone": "0422918971"
@@ -513,8 +513,8 @@
         "nom": "O'4 Ballons",
         "adresse": "2 pl. de la Madeleine (Tarare)",
         "coordonnees": [
-            45.89556324380393,
-            4.435665268627838
+            45.89539464495588,
+            4.435671331330114
         ],
         "type": "Bar",
         "telephone": "0474635378"
@@ -523,8 +523,8 @@
         "nom": "Paddy's Corner",
         "adresse": "4 rue de la Terrasse (Lyon)",
         "coordonnees": [
-            45.77481165774433,
-            4.8309447396220815
+            45.77476108499541,
+            4.830684403996515
         ],
         "type": "Bar",
         "telephone": "0952112176"
@@ -533,8 +533,8 @@
         "nom": "Parc Louis-Dupic",
         "adresse": "21 rue Gambetta (Vénissieux)",
         "coordonnees": [
-            45.69800326096907,
-            4.885006625086146
+            45.697950720746256,
+            4.884990716721217
         ],
         "type": "Fan-zone",
         "telephone": ""
@@ -543,8 +543,8 @@
         "nom": "Parc Louis-Nicollin",
         "adresse": "66 rue Carnot (Saint-Fons)",
         "coordonnees": [
-            45.707615945777995,
-            4.86425782617102
+            45.707471778479594,
+            4.864249739466047
         ],
         "type": "Fan-zone",
         "telephone": ""
@@ -553,8 +553,8 @@
         "nom": "Parc Manillier",
         "adresse": "107 rue Ampère (Oullins-Pierre-Bénite)",
         "coordonnees": [
-            45.70378708325608,
-            4.820092693225837
+            45.70369148820087,
+            4.819681757583529
         ],
         "type": "Fan-zone",
         "telephone": ""
@@ -563,8 +563,8 @@
         "nom": "Pasino Grand",
         "adresse": "200 av. du Casino (La Tour-de-Salvagny)",
         "coordonnees": [
-            45.78843489112256,
-            4.731503526966616
+            45.78832941743339,
+            4.731444277823534
         ],
         "type": "Casino",
         "telephone": "0478870270"
@@ -573,8 +573,8 @@
         "nom": "Salle des fêtes de Corbas",
         "adresse": "Pl. Charles-Jocteur (Corbas)",
         "coordonnees": [
-            45.67104903295366,
-            4.898778153108723
+            45.67095550771995,
+            4.898857958392375
         ],
         "type": "Fan-zone",
         "telephone": ""
@@ -583,8 +583,8 @@
         "nom": "Salle des fêtes de Pommiers",
         "adresse": "Pl. du 11-Novembre (Pommiers)",
         "coordonnees": [
-            45.95486020170932,
-            4.692473655138745
+            45.830429830924125,
+            4.062998214339593
         ],
         "type": "Fan-zone",
         "telephone": ""
@@ -623,8 +623,8 @@
         "nom": "Tank",
         "adresse": "45 rue de Gerland (Lyon)",
         "coordonnees": [
-            45.73987538988882,
-            4.840645484623736
+            45.73974117901648,
+            4.840558109607846
         ],
         "type": "Bar",
         "telephone": "0437653653"
@@ -633,8 +633,8 @@
         "nom": "The People",
         "adresse": "10 montée des Carmélites (Lyon)",
         "coordonnees": [
-            45.771813412056765,
-            4.827381912183581
+            45.77166257985291,
+            4.827237183591804
         ],
         "type": "Fan-zone",
         "telephone": "0428018602"
@@ -643,8 +643,8 @@
         "nom": "UrbanSoccer Barolles",
         "adresse": "36 chem. de Sacuny (Brignais)",
         "coordonnees": [
-            45.683821329276775,
-            4.772518795601728
+            45.68375064932032,
+            4.772589284487534
         ],
         "type": "Autres",
         "telephone": "0478050985"
@@ -653,8 +653,8 @@
         "nom": "UrbanSoccer Dardilly",
         "adresse": "11 chem. des Pins (Dardilly)",
         "coordonnees": [
-            45.79259795434392,
-            4.739496441787855
+            45.79241695933283,
+            4.738841200896893
         ],
         "type": "Autres",
         "telephone": "0481884630"
@@ -663,8 +663,8 @@
         "nom": "Wallace",
         "adresse": "2 rue Octavio-Mey (Lyon)",
         "coordonnees": [
-            45.766374545374205,
-            4.82839464163839
+            45.766306691208015,
+            4.828385836063607
         ],
         "type": "Bar",
         "telephone": "0472002391"
