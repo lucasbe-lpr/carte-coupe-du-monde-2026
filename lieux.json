@@ -210,6 +210,16 @@
         "telephone": ""
     },
     {
+        "nom": "La Feria",
+        "adresse": "13 quai Romain-Rolland (Lyon)",
+        "coordonnees": [
+            45.7636836334848,
+            4.828964599310372
+        ],
+        "type": "Bar",
+        "telephone": "0633970300"
+    },
+    {
         "nom": "La Rayonne",
         "adresse": "7 rue Henri-Legay (Villeurbanne)",
         "coordonnees": [
@@ -326,7 +336,7 @@
             45.78445259150511,
             4.851165822199649
         ],
-        "type": "Autres",
+        "type": "Bar",
         "telephone": "0603195587"
     },
     {
