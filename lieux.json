@@ -1,5 +1,25 @@
 [
     {
+        "nom": "Au Bureau Brignais",
+        "adresse": "1 rue de l'Industrie (Brignais)",
+        "coordonnees": [
+            45.68225857243932,
+            4.774604847158465
+        ],
+        "type": "Brasserie",
+        "telephone": "0478790696"
+    },
+    {
+        "nom": "Au Bureau Vaulx-en-Velin",
+        "adresse": "3 av. de Bohlen (Vaulx-en-Velin)",
+        "coordonnees": [
+            45.768686952835886,
+            4.923107904450147
+        ],
+        "type": "Brasserie",
+        "telephone": "0963444835"
+    },
+    {
         "nom": "Au Fût Lyon",
         "adresse": "18 bd des Brotteaux (Lyon)",
         "coordonnees": [
